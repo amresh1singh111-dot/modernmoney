@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-bg: 248 250 252;
+    --color-surface: 255 255 255;
+    --color-border: 226 232 240;
+    --color-text: 15 23 42;
+    --color-text-muted: 100 116 139;
+  }
+
+  .dark {
+    --color-bg: 15 23 42;
+    --color-surface: 30 41 59;
+    --color-border: 51 65 85;
+    --color-text: 241 245 249;
+    --color-text-muted: 148 163 184;
+  }
+
+  * {
+    border-color: rgb(var(--color-border));
+  }
+
+  body {
+    background-color: rgb(var(--color-bg));
+    color: rgb(var(--color-text));
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  }
+}
+
+@layer components {
+  .surface {
+    background-color: rgb(var(--color-surface));
+  }
+
+  .text-muted {
+    color: rgb(var(--color-text-muted));
+  }
+
+  .card {
+    background-color: rgb(var(--color-surface));
+    border: 1px solid rgb(var(--color-border));
+    border-radius: 1rem;
+  }
+
+  .input-field {
+    width: 100%;
+    background-color: rgb(var(--color-surface));
+    border: 1px solid rgb(var(--color-border));
+    border-radius: 0.75rem;
+    padding: 0.625rem 1rem;
+    color: rgb(var(--color-text));
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+
+  .input-field:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
+  }
+
+  .input-field::placeholder {
+    color: rgb(var(--color-text-muted));
+  }
+
+  .btn-primary {
+    background-color: #3b82f6;
+    color: white;
+    font-weight: 600;
+    padding: 0.625rem 1.25rem;
+    border-radius: 0.75rem;
+    transition: background-color 0.15s, transform 0.1s;
+  }
+
+  .btn-primary:hover {
+    background-color: #2563eb;
+  }
+
+  .btn-primary:active {
+    transform: scale(0.98);
+  }
+
+  .btn-primary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .btn-secondary {
+    background-color: rgb(var(--color-surface));
+    border: 1px solid rgb(var(--color-border));
+    color: rgb(var(--color-text));
+    font-weight: 600;
+    padding: 0.625rem 1.25rem;
+    border-radius: 0.75rem;
+    transition: background-color 0.15s;
+  }
+
+  .btn-secondary:hover {
+    background-color: rgb(var(--color-bg));
+  }
+
+  .btn-ghost {
+    color: rgb(var(--color-text-muted));
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.15s, color 0.15s;
+  }
+
+  .btn-ghost:hover {
+    background-color: rgb(var(--color-bg));
+    color: rgb(var(--color-text));
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--color-border));
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--color-text-muted));
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.35s ease-out;
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.2s ease-out;
+}
+
+/* Progress bar transition */
+.progress-bar {
+  transition: width 0.5s ease-out;
+}
